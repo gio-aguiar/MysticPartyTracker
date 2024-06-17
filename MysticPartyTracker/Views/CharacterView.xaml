@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MysticPartyTracker.Views.CharacterView"
+             Title="CharacterView">
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+                <VerticalStackLayout>
+                    <Label 
+                    Text="Nome"/>
+                    <Entry
+                    MinimumWidthRequest="100"
+                    Text="{Binding Nome}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label 
+                    Text="Level"/>
+                    <Entry
+                    MinimumWidthRequest="100"
+                    Text="{Binding Level}"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            <Label
+            Text="Classe"/>
+            <Entry
+            Text="{Binding Classe}"/>
+
+            <Label
+    Text="Raça"/>
+            <Entry
+    Text="{Binding Raca}"/>
+
+            <Button
+            Text="Criar personagem"
+            Command="{Binding CriarPersonagemCommand}"/>
+
+            <CollectionView ItemsSource="{Binding Characters}" EmptyView="Nenhuma raça encontrada">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Nome}"/>
+                                <Label Text="{Binding Level}"/>
+                            </HorizontalStackLayout>
+                            <Label Text="{Binding Classe}"/>
+                            <Label Text="{Binding Raca}"/>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
